@@ -8,7 +8,7 @@ interface news {
     body: string
 }
 // スクレイピングの実行
-const scraping = async (data: ParsedUrlQueryInput): Promise<string> => {
+const scraping_hinatazaka46 = async (data: ParsedUrlQueryInput): Promise<string> => {
     try {
         const response = await axios({
             method: 'post',
@@ -56,7 +56,7 @@ const main = async () => {
         list: [16],
     }
 
-    const result = await scraping(data)
+    const result = await scraping_hinatazaka46(data)
     const news = analysis(result)
     console.log(news)
 }
