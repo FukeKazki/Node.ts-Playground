@@ -8,7 +8,7 @@ interface news {
     body: string
 }
 // スクレイピングの実行
-const scraping_hinatazaka46 = async (data: ParsedUrlQueryInput): Promise<string> => {
+const scraping = async (data: ParsedUrlQueryInput): Promise<string> => {
     try {
         const response = await axios({
             method: 'post',
@@ -48,7 +48,7 @@ const MEMBERS = [null, null, '潮 紗理菜', null, '影山 優佳', '加藤 史
     '高本 彩花', '東村 芽依', '金村 美玖', '河田 陽菜', '小坂 菜緒', '富田 鈴花', '丹生 明里', '濱岸 ひより', '松田 好花', '宮田 愛萌',
     '渡邉 美穂', '上村 ひなの']
 
-const main = async () => {
+export const main = async () => {
     // メンバーの選択
     MEMBERS.map((member, i) => console.log(i, member))
     const data = {
@@ -56,9 +56,10 @@ const main = async () => {
         list: [16],
     }
 
-    const result = await scraping_hinatazaka46(data)
+    const result = await scraping(data)
     const news = analysis(result)
     console.log(news)
+    return news
 }
 
 // メインの実行
