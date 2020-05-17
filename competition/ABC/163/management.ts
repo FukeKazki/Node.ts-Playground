@@ -1,5 +1,5 @@
 import * as fs from 'fs'
-import {debug} from '../../util'
+import {debug} from '../../../util'
 const output = (x: any) => console.log(x)
 
 const input = fs.readFileSync('/dev/stdin', 'utf8').split('\n')
